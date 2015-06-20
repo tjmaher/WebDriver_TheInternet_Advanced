@@ -1,22 +1,44 @@
 package utils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.TestException;
 
-public abstract class    CommonUtils {
+import java.util.List;
 
+public abstract class    CommonUtils {
 
     public WebDriver _driver;
     public WebDriverWait wait;
     public Actions actions;
+    public Select select;
 
+    private static int timeout = 10;
 
     public CommonUtils() {
         _driver = DriverUtils.getFirefoxDriver();
+    }
+
+    public By getCSS(String Selector) {
+        return By.cssSelector(Selector);
+    }
+
+    public By getXPATH(String Selector) {
+        return By.xpath(Selector);
+    }
+
+
+    public By getId(String Selector) {
+        return By.id(Selector);
+    }
+
+    public By getLinkText(String Selector) {
+        return By.linkText(Selector);
     }
 
     public void navigateToURL(String URL) {
@@ -49,8 +71,15 @@ public abstract class    CommonUtils {
         return null;
     }
 
-
-
+    public String getElementText(By selector){
+        waitForElementToBeVisible(selector);
+        try{
+            return StringUtils.trim(_driver.findElement(selector).getText());
+        }catch (Exception e){
+            System.out.println(String.format("Element %s does not exist - proceeding", selector));
+        }
+        return null;
+    }
 
     public void sendKeys(By selector, String value) {
         WebElement element = getElement(selector);
@@ -98,5 +127,39 @@ public abstract class    CommonUtils {
         }
     }
 
+    public void waitForElementToDisappear(By selector) {
+        System.out.println("Waiting for element to disappear: " + selector);
+        try {
+            wait = new WebDriverWait(_driver, 10);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(selector));
+        } catch (Exception e) {
+            System.out.println("Exception caught in waitForElementToDisappear:\n" + e.toString());
+            throw new TestException(String.format("Element did not disappear: [%s]", selector.toString()));
+        }
+    }
 
+    public void selectOption(By selector, Object value) {
+        WebElement element = getElement(selector);
+        List<WebElement> options = element.findElements(getTagName("option"));
+        select = new Select(element);
+        try {
+            for (WebElement option : options) {
+                if (option.isDisplayed()) {
+                    if (value instanceof String) {
+                        select.selectByValue((String) value);
+                        break;
+                    } else if (value instanceof Integer) {
+                        select.selectByIndex((Integer) value);
+                        break;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public By getTagName(String Selector) {
+        return By.tagName(Selector);
+    }
 }

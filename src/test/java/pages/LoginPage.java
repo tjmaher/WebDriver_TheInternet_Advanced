@@ -3,7 +3,10 @@ package pages;
 import enums.UserEnum;
 import interfaces.ISelector;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import utils.CommonUtils;
+
+import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
@@ -31,9 +34,6 @@ public class LoginPage extends CommonUtils{
     }
 
     public void verifyDefaultElementsDisplay(){
-        System.out.println("Verifying Page Elements display: ");
-
-
         assertTrue(getElement(LoginPageEnum.USERNAME.selector()).isDisplayed());
         assertTrue(getElement(LoginPageEnum.PASSWORD.selector()).isDisplayed());
         assertTrue(getElement(LoginPageEnum.LOGIN_BUTTON.selector()).isDisplayed());
@@ -44,12 +44,10 @@ public class LoginPage extends CommonUtils{
         String username = user.getUserName();
         String password = user.getPassword();
 
-        verifyDefaultElementsDisplay();
         enterUserName(username);
         enterPassword(password);
         waitForElementToBeClickable((LoginPageEnum.LOGIN_BUTTON.selector()));
         click(LoginPageEnum.LOGIN_BUTTON.selector());
-
     }
 
     public enum LoginPageEnum implements ISelector {
