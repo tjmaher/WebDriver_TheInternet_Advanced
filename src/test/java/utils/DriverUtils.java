@@ -6,10 +6,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverUtils {
 
-    public static WebDriver getFirefoxDriver() {
-        WebDriver _driver = new FirefoxDriver();
+    public static  WebDriver _driver;
 
+    public static WebDriver getDriver() {
+        _driver = new FirefoxDriver();
         return _driver;
     }
-
 }

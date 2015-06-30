@@ -3,6 +3,7 @@ package utils;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -13,16 +14,16 @@ import java.util.List;
 
 public abstract class    CommonUtils {
 
-    public WebDriver _driver;
-    public WebDriverWait wait;
-    public Actions actions;
-    public Select select;
-
     private static int timeout = 10;
 
     public CommonUtils() {
-        _driver = DriverUtils.getFirefoxDriver();
+        _driver = DriverUtils.getDriver();
     }
+
+    public static WebDriver _driver;
+    public WebDriverWait wait;
+    public Actions actions;
+    public Select select;
 
     public By getCSS(String Selector) {
         return By.cssSelector(Selector);

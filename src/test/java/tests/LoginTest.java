@@ -1,37 +1,37 @@
 package tests;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import enums.PageHeaderEnum;
+import enums.PageHeaderEnum.*;
 import org.openqa.selenium.WebDriver;
-import utils.DriverUtils;
-import pages.LoginPage;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import static org.testng.Assert.assertEquals;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import pages.LoginPage;
+import pages.LoginPage.LoginPageEnum;
+import pages.SecureArea;
+import utils.DriverUtils;
 
 import static enums.UserEnum.*;
 
 public class LoginTest {
 
-    private static WebDriver driver;
     LoginPage login = new LoginPage();
+    SecureArea secure = new SecureArea();
 
-
-    @BeforeClass
-    public static void setup() {
-
-        driver = DriverUtils.getFirefoxDriver();
-    }
 
     @Test
     public void test_Login() {
 
         login.navigateToLoginPage();
+        assertEquals(login.getHeaderText(), "Login Page", "The Login page did not display! (FAIL)");
+        login.verifyDefaultElementsDisplay();
         login.logIntoPage(TOM_SMITH);
+        secure.verifyDefaultElementsDisplay();
+        assertEquals(secure.getHeaderText(), "Secure Area", "The Secure Area page did not display! (FAIL)");
+        secure.logOutOfSecureArea();
     }
 
-    @AfterClass
-    public static void tearDown(){
-        driver.quit();
-    }
 }

@@ -3,10 +3,7 @@ package pages;
 import enums.UserEnum;
 import interfaces.ISelector;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import utils.CommonUtils;
-
-import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
@@ -20,20 +17,27 @@ public class LoginPage extends CommonUtils{
         navigateToURL(baseURL + login);
     }
 
+    public String getHeaderText(){
+
+        System.out.println("Header is: " + getElementText(LoginPageEnum.HEADER.selector()));
+        return getElementText(LoginPageEnum.HEADER.selector());
+
+    }
     public void enterUserName(String user) {
         waitForElementToBeVisible(LoginPageEnum.USERNAME.selector());
-        System.out.println("Entering username...\n");
+        System.out.println("Entering username...");
         sendKeys(LoginPageEnum.USERNAME.selector(), user);
     }
 
     public void enterPassword(String password) {
 
         waitForElementToBeVisible(LoginPageEnum.PASSWORD.selector());
-        System.out.println("Enter password...\n");
+        System.out.println("Enter password...");
         sendKeys(LoginPageEnum.PASSWORD.selector(), password);
     }
 
     public void verifyDefaultElementsDisplay(){
+        System.out.println("Checking if the page elements display correctly");
         assertTrue(getElement(LoginPageEnum.USERNAME.selector()).isDisplayed());
         assertTrue(getElement(LoginPageEnum.PASSWORD.selector()).isDisplayed());
         assertTrue(getElement(LoginPageEnum.LOGIN_BUTTON.selector()).isDisplayed());
@@ -52,6 +56,7 @@ public class LoginPage extends CommonUtils{
 
     public enum LoginPageEnum implements ISelector {
 
+        HEADER("h2"),
         USERNAME("[name='username']"),
         PASSWORD("[name='password']"),
         LOGIN_BUTTON("[type='submit'][class='radius']");
