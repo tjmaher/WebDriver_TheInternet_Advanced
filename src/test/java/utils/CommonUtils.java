@@ -12,7 +12,7 @@ import org.testng.TestException;
 
 import java.util.List;
 
-// Code written by jmoore, with only very changes by tjmaher.com. 
+// Code written by James Moore @ Fitbit 
 
 public abstract class    CommonUtils {
 
