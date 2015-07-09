@@ -12,6 +12,8 @@ import org.testng.TestException;
 
 import java.util.List;
 
+// Code written by jmoore, with only very changes by tjmaher.com. 
+
 public abstract class    CommonUtils {
 
     private static int timeout = 10;
