@@ -10,19 +10,19 @@ import static org.junit.Assert.assertTrue;
 public class SecureArea extends CommonUtils{
 
     public void verifyDefaultElementsDisplay(){
-        System.out.println("Checking if the page elements display correctly.");
+        System.out.println("SECURE_AREA: Checking if the page elements display correctly.");
         assertTrue(getElement(SecureAreaEnum.LOGOUT_BUTTON.selector()).isDisplayed());
     }
 
     public void logOutOfSecureArea(){
-        System.out.println("Logging out of Secure Area.");
+        System.out.println("SECURE_AREA: Logging out of Secure Area.");
         waitForElementToBeClickable((SecureAreaEnum.LOGOUT_BUTTON.selector()));
         click(SecureAreaEnum.LOGOUT_BUTTON.selector());
     }
 
     public String getHeaderText(){
 
-        System.out.println("Header is: " + getElementText(SecureAreaEnum.HEADER.selector()));
+        System.out.println("SECURE_AREA: Header is: " + getElementText(SecureAreaEnum.HEADER.selector()));
         return getElementText(SecureAreaEnum.HEADER.selector());
 
     }

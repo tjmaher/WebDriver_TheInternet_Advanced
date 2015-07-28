@@ -5,39 +5,40 @@ import interfaces.ISelector;
 import org.openqa.selenium.By;
 import utils.CommonUtils;
 
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 public class LoginPage extends CommonUtils{
 
-    private static String baseURL = "https://the-internet.herokuapp.com";
-    private static String login = "/login";
+    private static final String baseURL = "https://the-internet.herokuapp.com";
+    private static final String login = "/login";
+    private static final String pageTitle = "LOGIN_PAGE: ";
 
     public void navigateToLoginPage(){
-        System.out.println("Navigating to the Login page...");
+        System.out.println(pageTitle + "Navigating to the Login page...");
         navigateToURL(baseURL + login);
     }
 
     public String getHeaderText(){
 
-        System.out.println("Header is: " + getElementText(LoginPageEnum.HEADER.selector()));
+        System.out.println(pageTitle + "Header is: " + getElementText(LoginPageEnum.HEADER.selector()));
         return getElementText(LoginPageEnum.HEADER.selector());
 
     }
     public void enterUserName(String user) {
         waitForElementToBeVisible(LoginPageEnum.USERNAME.selector());
-        System.out.println("Entering username...");
+        System.out.println(pageTitle + "Entering username.");
         sendKeys(LoginPageEnum.USERNAME.selector(), user);
     }
 
     public void enterPassword(String password) {
 
         waitForElementToBeVisible(LoginPageEnum.PASSWORD.selector());
-        System.out.println("Enter password...");
+        System.out.println(pageTitle + "Enter password.");
         sendKeys(LoginPageEnum.PASSWORD.selector(), password);
     }
 
     public void verifyDefaultElementsDisplay(){
-        System.out.println("Checking if the page elements display correctly");
+        System.out.println(pageTitle + "Checking if the page elements display correctly.");
         assertTrue(getElement(LoginPageEnum.USERNAME.selector()).isDisplayed());
         assertTrue(getElement(LoginPageEnum.PASSWORD.selector()).isDisplayed());
         assertTrue(getElement(LoginPageEnum.LOGIN_BUTTON.selector()).isDisplayed());

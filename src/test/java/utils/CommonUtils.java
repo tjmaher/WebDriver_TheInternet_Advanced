@@ -14,7 +14,7 @@ import java.util.List;
 
 // Code written by James Moore @ Fitbit. Selections placed here by T.J. Maher.  
 
-public abstract class    CommonUtils {
+public abstract class CommonUtils {
 
     private static int timeout = 10;
 
@@ -23,6 +23,7 @@ public abstract class    CommonUtils {
     }
 
     public static WebDriver _driver;
+//    public WebDriver _driver;
     public WebDriverWait wait;
     public Actions actions;
     public Select select;
