@@ -24,12 +24,13 @@ Utilities written:
      built in logging functionality, suitable for a Jenkins console.
 
 
-Part One: Sketching out the simple manipulation of a login page.
-Part Two: Drafting a set of common utilities, refactoring the initial code
-Part Three: Storing constants: public final vs enums
-Part Four: Storing locators in enums
-Part Five: The Page Object Model 
-Part Six: Writing the Automated Test
-     
+<ul>
+<li><b>Part One:</b>&nbsp;Sketching out the&nbsp;<a href="http://adventuresinautomation.blogspot.com/2015/06/simple-manipulation-of-login-page.html">simple manipulation of a login page</a></li>
+<li><b>Part Two</b>: Drafting&nbsp;<a href="http://adventuresinautomation.blogspot.com/2015/06/creating-common-utilities-for-webdriver.html" target="_blank">a set of common utilities</a>, refactoring the initial code</a></li>
+<li><b>Part Three:</b>&nbsp;Storing constants:&nbsp;<a href="http://adventuresinautomation.blogspot.com/2015/07/how-java-stores-constants-static-final.html">public final vs enums</a></li>
+<li>Part Four: Storing&nbsp;<a href="http://adventuresinautomation.blogspot.com/2015/07/storing-locators-for-web-elements.html" target="_blank">locators in enums</a></li>
+<li>Part Five: The&nbsp;<a href="http://adventuresinautomation.blogspot.com/2015/07/the-internet-page-object-model-examples.html">Page Object Model</a>&nbsp;</li>
+<li>Part Six:&nbsp;<a href="http://adventuresinautomation.blogspot.com/2015/07/the-internet-writing-automated-test.html">Writing the Automated Test</a></li>
+</ul>
 
 
