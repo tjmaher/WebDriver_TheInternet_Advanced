@@ -10,7 +10,7 @@ From my blog, <b>Adventures in Automation</b> at http://www.tjmaher.com/:
 <li><b>Part Two</b>: Drafting&nbsp;<a href="http://adventuresinautomation.blogspot.com/2015/06/creating-common-utilities-for-webdriver.html" target="_blank">a set of common utilities</a>, refactoring the initial code</a></li>
 <li><b>Part Three:</b>&nbsp;Storing constants:&nbsp;<a href="http://adventuresinautomation.blogspot.com/2015/07/how-java-stores-constants-static-final.html">public final vs enums</a></li>
 <li><b>Part Four:</b> Storing&nbsp;<a href="http://adventuresinautomation.blogspot.com/2015/07/storing-locators-for-web-elements.html" target="_blank">locators in enums</a></li>
-<li>>b>Part Five:</b> The&nbsp;<a href="http://adventuresinautomation.blogspot.com/2015/07/the-internet-page-object-model-examples.html">Page Object Model</a>&nbsp;</li>
+<li><b>Part Five:</b> The&nbsp;<a href="http://adventuresinautomation.blogspot.com/2015/07/the-internet-page-object-model-examples.html">Page Object Model</a>&nbsp;</li>
 <li><b>Part Six:</b><a href="http://adventuresinautomation.blogspot.com/2015/07/the-internet-writing-automated-test.html">Writing the Automated Test</a></li>
 </ul>
 </blockquote>
