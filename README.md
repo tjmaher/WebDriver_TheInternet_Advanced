@@ -22,6 +22,14 @@ The pages this projects currently test against:
 Utilities written:
 * CommonUtils: Methods of the WebDriver API are individually wrapped up in try / catch / throw blocks, with 
      built in logging functionality, suitable for a Jenkins console.
+
+
+Part One: Sketching out the simple manipulation of a login page.
+Part Two: Drafting a set of common utilities, refactoring the initial code
+Part Three: Storing constants: public final vs enums
+Part Four: Storing locators in enums
+Part Five: The Page Object Model 
+Part Six: Writing the Automated Test
      
 
 
